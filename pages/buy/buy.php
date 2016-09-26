@@ -4,7 +4,7 @@
 <title>Aditya | Buy</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="../layout/styles/buy.css" rel="stylesheet" type="text/css" media="all">
+<link href="../../layout/styles/buy.css" rel="stylesheet" type="text/css" media="all">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body id="top">
@@ -70,6 +70,7 @@
 
 <div class="wrapper row3">
   <main class="hoc container clear"> 
+     
       <div class="row" id="box">
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="picture"></div>
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
@@ -82,18 +83,21 @@
               <span class="col-xs-7 text-left m-sgfamily robotoregular paddingR0">Single Family</span>
               <span class="col-xs-5 text-right m-timer">0d 0h 43m</span>
             </div>
-            <div class="row m-borderT m-marginT5">
-              <div class="col-xs-4 text-center paddingLR0">2 <span class="srpTxt ">Beds</span></div>
-              <div class="col-xs-4 text-center paddingLR0 m-borderLR">1 <span class="srpTxt ">Bath</span></div>
-              <div class="col-xs-4 text-center paddingLR0">$29,000</div>
-            </div>
           </div>
           <div class="row propDetails hidden-xs">
             <div class="col-xs-12 col-sm-5 col-md-6 col-lg-6 text-center paddingLR0 propDetails">
               <span class="sfTxt pull-left robotoregular">Single Family</span>
               <span class="poolTxt hidden-sm pull-left"> Bank Owned</span>
               <div class="clearfix"></div>
-              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 beds"><div>2</div><div class="srpTxt ">Beds</div>
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 beds">
+                <div>
+                  <?php 
+                    //session_start();
+                    //require_once('connection.php');
+                    //$sql = 'SELECT username FROM employee';
+                    $a=3; 
+                    echo "$a"; ?></div>
+                <div class="srpTxt ">Beds</div>
               </div>
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 baths">1<br/><span class="srpTxt">Bath</span></div>
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sqFeet">800<br/><span class="srpTxt ">Sq Ft</span></div>
@@ -135,6 +139,7 @@
           </div>
         </div>
       </div>
+    
   </main>
 </div>
 
