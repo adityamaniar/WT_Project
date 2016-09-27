@@ -8,6 +8,10 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body id="top">
+  <?php 
+    session_start();
+    require_once('connection.php');
+  ?>
 <!-- Top Background Image Wrapper -->
 <div class="bgded overlay"> 
   <div class="wrapper row0">
@@ -92,22 +96,44 @@
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 beds">
                 <div>
                   <?php 
-                    //session_start();
-                    //require_once('connection.php');
-                    //$sql = 'SELECT username FROM employee';
-                    $a=3; 
-                    echo "$a"; ?></div>
+                    $sql = "SELECT beds FROM buy";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    echo $row["beds"];
+                  ?></div>
                 <div class="srpTxt ">Beds</div>
               </div>
-              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 baths">1<br/><span class="srpTxt">Bath</span></div>
-              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sqFeet">800<br/><span class="srpTxt ">Sq Ft</span></div>
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 baths">
+                <?php 
+                  $sql = "SELECT baths FROM buy";
+                  $result = mysqli_query($conn, $sql);
+                  $row = mysqli_fetch_assoc($result);
+                  echo $row["baths"];
+                ?>
+              <br/><span class="srpTxt">Bath</span></div>
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sqFeet">
+                <?php 
+                  $sql = "SELECT sq_ft FROM buy";
+                  $result = mysqli_query($conn, $sql);
+                  $row = mysqli_fetch_assoc($result);
+                  echo $row["sq_ft"];
+                ?><br/><span class="srpTxt ">Sq Ft</span></div>
               <div class="clearfix"></div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 text-center timer">
               <div class="srpTxt timeLeftTxt">Time Left</div>
               <table width="100%">
               <tr class="counter Red">
-              <td>0</td>
+              <td><?php 
+                  $sql = "SELECT time_days FROM buy";
+                  $result = mysqli_query($conn, $sql);
+                  $row = mysqli_fetch_assoc($result);
+                  $days = $row["time_days"];
+                ?>
+              <script type="text/javascript">
+                var simple = '<?php echo $simple; ?>';
+                var complex = <?php echo json_encode($complex); ?>;
+              </script></td>
               <td valign="top">:</td>
               <td>0</td>
               <td valign="top">:</td>
