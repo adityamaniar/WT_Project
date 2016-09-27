@@ -7,5 +7,7 @@
 	if (!$conn) {
 	    die("Connection failed: " . mysqli_connect_error());
 	}
-	$_SESSION['conn'] = $conn;
+	$sql = "SELECT * FROM buy";
+	$result = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_assoc($result);
 ?>

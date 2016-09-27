@@ -34,11 +34,11 @@
   <div class="wrapper row1">
     <header id="header" class="hoc clear"> 
       <div id="logo" class="fl_left">
-        <h1><a href="../index.html">Aditya</a></h1>
+        <h1><a href="../../index.html">Aditya</a></h1>
       </div>
       <nav id="mainav" class="fl_right">
         <ul class="clear">
-          <li><a href="../index.html">Home</a></li>
+          <li><a href="../../index.html">Home</a></li>
           <li class="active"><a href="#">Buy</a>
           </li>
           <li><a class="drop" href="#">Dropdown</a>
@@ -79,81 +79,77 @@
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="picture"></div>
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
           <address>
-            <span class="address pull-left">305 W Jenny StreetBay City, MI 48706</span>
+            <span class="address pull-left">
+              <?php
+                echo $row["address"];
+              ?>
+            </span>
           </address>
           
-          <div class="row hidden-sm hidden-md hidden-lg">
-            <div class="row">
-              <span class="col-xs-7 text-left m-sgfamily robotoregular paddingR0">Single Family</span>
-              <span class="col-xs-5 text-right m-timer">0d 0h 43m</span>
-            </div>
-          </div>
           <div class="row propDetails hidden-xs">
             <div class="col-xs-12 col-sm-5 col-md-6 col-lg-6 text-center paddingLR0 propDetails">
-              <span class="sfTxt pull-left robotoregular">Single Family</span>
-              <span class="poolTxt hidden-sm pull-left"> Bank Owned</span>
+              <span class="sfTxt pull-left robotoregular">
+                <?php
+                  echo $row["house_type"];
+                ?>
+              </span>
+              <span class="poolTxt hidden-sm pull-left">
+                <?php
+                  $a = $row["bank_owned"];
+                  if($a == 1)
+                    echo "Bank Owned";
+                  else
+                    echo "Self Owned";
+                ?>
+              </span>
               <div class="clearfix"></div>
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 beds">
                 <div>
                   <?php 
-                    $sql = "SELECT beds FROM buy";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
                     echo $row["beds"];
                   ?></div>
                 <div class="srpTxt ">Beds</div>
               </div>
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 baths">
                 <?php 
-                  $sql = "SELECT baths FROM buy";
-                  $result = mysqli_query($conn, $sql);
-                  $row = mysqli_fetch_assoc($result);
                   echo $row["baths"];
                 ?>
               <br/><span class="srpTxt">Bath</span></div>
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sqFeet">
                 <?php 
-                  $sql = "SELECT sq_ft FROM buy";
-                  $result = mysqli_query($conn, $sql);
-                  $row = mysqli_fetch_assoc($result);
                   echo $row["sq_ft"];
                 ?><br/><span class="srpTxt ">Sq Ft</span></div>
               <div class="clearfix"></div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 text-center timer">
+              <?php
+                $end_date = $row["end_date"];
+              ?>
+              <script>
+                var deadline = "<?php echo $end_date ?>";
+              </script>
               <div class="srpTxt timeLeftTxt">Time Left</div>
               <table width="100%">
               <tr class="counter Red">
-              <td><?php 
-                  $sql = "SELECT time_days FROM buy";
-                  $result = mysqli_query($conn, $sql);
-                  $row = mysqli_fetch_assoc($result);
-                  $days = $row["time_days"];
-                ?>
-              <script type="text/javascript">
-                var simple = '<?php echo $simple; ?>';
-                var complex = <?php echo json_encode($complex); ?>;
-              </script></td>
-              <td valign="top">:</td>
-              <td>0</td>
-              <td valign="top">:</td>
-              <td>43</td>
+                <td id="days"></td>
+                <td valign="top">:</td>
+                <td id="hrs"></td>
+                <td valign="top">:</td>
+                <td id="mins"></td>
               </tr>
-              <tr class="srpTxt">
-              <td>DAYS</td>
-              <td>&nbsp;</td>
-              <td>HRS</td>
-              <td>&nbsp;</td>
-              <td>MINS</td>
+              <tr>
+                <td>DAYS</td>
+                <td>&nbsp;</td>
+                <td>HRS</td>
+                <td>&nbsp;</td>
+                <td>MINS</td>
               </tr>
               </table>
               <table width="100%" class="borderT">
               <tr>
-              <td>
-              <div class="srpTxt reserveMet text-left ">Reserve Met : No</div>
-              </td>
-              <td>
-              </td>
+                <td>
+                  <div class="srpTxt reserveMet text-left ">Reserve Met : No</div>
+                </td>
               </tr>
               </table>
             </div>
@@ -221,8 +217,9 @@
 
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
 <!-- JAVASCRIPTS -->
-<script src="../layout/scripts/jquery.min.js"></script>
-<script src="../layout/scripts/jquery.backtotop.js"></script>
-<script src="../layout/scripts/jquery.mobilemenu.js"></script>
+<script src="../../layout/scripts/jquery.min.js"></script>
+<script src="../../layout/scripts/jquery.backtotop.js"></script>
+<script src="../../layout/scripts/jquery.mobilemenu.js"></script>
+<script src="../../layout/scripts/countdown.js"></script>
 </body>
 </html>
