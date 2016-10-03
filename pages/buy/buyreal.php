@@ -74,69 +74,59 @@
 
 <div class="wrapper row3">
   <main class="hoc container clear"> 
-    <?php
-      
-    for ($rows = 0; $rows<5; $rows++) {
-      # code...
-      $sql = "SELECT * FROM buy WHERE id=$rows+1";
-      $result = mysqli_query($conn, $sql);
-      $row = mysqli_fetch_array($result);
     
-      echo '<div class="row" id="box">
+      <div class="row" id="box">
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="picture"></div>
-       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
           <address>
-       <span class="address pull-left">';
-              
-                 echo $row['address']."<br />";
-              
-      echo       '</span>
+            <span class="address pull-left">
+              <?php
+                echo $row["address"];
+              ?>
+            </span>
           </address>
-        </div>
-      </div>';
-    }
-          ?>
-          <!--<div class="row propDetails hidden-xs">
+          
+          <div class="row propDetails hidden-xs">
             <div class="col-xs-12 col-sm-5 col-md-6 col-lg-6 text-center paddingLR0 propDetails">
               <span class="sfTxt pull-left robotoregular">
                 <?php
-                  //echo $row->house_type;
+                  echo $row["house_type"];
                 ?>
               </span>
               <span class="poolTxt hidden-sm pull-left">
                 <?php
-                 // $a = $row->bank_owned;
-                  //if($a == 1)
-                    //echo "Bank Owned";
-                  //else
-                    //echo "Self Owned";
+                  $a = $row["bank_owned"];
+                  if($a == 1)
+                    echo "Bank Owned";
+                  else
+                    echo "Self Owned";
                 ?>
               </span>
               <div class="clearfix"></div>
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 beds">
                 <div>
                   <?php 
-                   // echo $row->beds;
+                    echo $row["beds"];
                   ?></div>
                 <div class="srpTxt ">Beds</div>
               </div>
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 baths">
                 <?php 
-                 // echo $row->baths;
+                  echo $row["baths"];
                 ?>
               <br/><span class="srpTxt">Bath</span></div>
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sqFeet">
                 <?php 
-                 // echo $row->sq_ft;
+                  echo $row["sq_ft"];
                 ?><br/><span class="srpTxt ">Sq Ft</span></div>
               <div class="clearfix"></div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 text-center timer">
               <?php
-                //$end_date = $row->end_date;
+                $end_date = $row["end_date"];
               ?>
               <script>
-                //var deadline = "<?php $end_date ?>";
+                var deadline = "<?php echo $end_date ?>";
               </script>
               <div class="srpTxt timeLeftTxt">Time Left</div>
               <table width="100%">
@@ -170,8 +160,7 @@
             </div>
           </div>
         </div>
-      </div>-->
-    
+      </div>
       
     <!--<script>
       function multiplyNode(node, count, deep) {
