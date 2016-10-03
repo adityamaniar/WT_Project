@@ -189,9 +189,9 @@
 <div class="wrapper row4 bgded overlay" style="background-image:url('../images/demo/backgrounds/01.png');">
   <footer id="footer" class="hoc clear">
     <div class="one_third first">
-      <h6 class="title">Sagittis metus odio</h6>
-      <p>Ligula a placerat condimentum orci nulla feugiat odio vel felis lacinia interdum cras auctor purus ut hendrerit.</p>
-      <p class="btmspace-15">Malesuada non sem quisque vulputate velit et nisi ullamcorper aliquet tincidunt ut id magna leo mattis in quam dapibus.</p>
+      <h6 class="title">Happy to help!</h6>
+      <p>If you have general questions regarding the related to the website or bid/offer process, contact us!</p>
+      <p class="btmspace-15">Your questions and comments are important to us. You can reach us by phone or e-mail. We have got everything covered for your needs.</p>
       <ul class="faico clear">
         <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
         <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
@@ -202,33 +202,32 @@
       </ul>
     </div>
     <div class="one_third">
-      <h6 class="title">Fringilla arcu quis</h6>
+      <h6 class="title">Contact Us</h6>
       <ul class="nospace linklist contact">
         <li><i class="fa fa-map-marker"></i>
           <address>
           Street Name &amp; Number, Town, Postcode/Zip
           </address>
         </li>
-        <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
-        <li><i class="fa fa-fax"></i> +00 (123) 456 7890</li>
-        <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
+        <li><i class="fa fa-phone"></i> (022) 28991988</li>
+        <li><i class="fa fa-envelope-o"></i> onlineauction@gma.com</li>
       </ul>
     </div>
     <div class="one_third">
-      <h6 class="title">Venenatis ligula sem</h6>
+      <h6 class="title">Our Branches</h6>
       <ul class="nospace linklist">
         <li>
           <article>
-            <h2 class="nospace font-x1"><a href="#">In neque nam tortor</a></h2>
-            <time class="font-xs block btmspace-10" datetime="2045-04-06">Friday, 6<sup>th</sup> April 2045</time>
-            <p class="nospace">Facilisis ex facilisis curabitur euismod egestas mauris et ultricies mauris&hellip;</p>
+            <h2 class="nospace font-x1"><a href="#">Mumbai</a></h2>
+            <time class="font-xs block btmspace-10" datetime="2045-04-06">Office Timimgs: 8am-8pm </time>
+            <p class="nospace">A/303, Rosewood Heights, Oshiwara.</p>
           </article>
         </li>
         <li>
           <article>
-            <h2 class="nospace font-x1"><a href="#">Odio lobortis nec cursus</a></h2>
-            <time class="font-xs block btmspace-10" datetime="2045-04-05">Thursday, 5<sup>th</sup> April 2045</time>
-            <p class="nospace">Cras consequat sem quis hendrerit interdum nunc diam volutpat&hellip;</p>
+            <h2 class="nospace font-x1"><a href="#">Bangalore</a></h2>
+            <time class="font-xs block btmspace-10" datetime="2045-04-05">Office Timimgs: 8am-6pm </time>
+            <p class="nospace">B/506, Mistique Wood, Old Race Course Rd, Yellagondanpalya.</p>
           </article>
         </li>
       </ul>
