@@ -74,7 +74,9 @@
 
 <div class="wrapper row3">
   <main class="hoc container clear"> 
-    
+    <?php $sql = "SELECT * FROM buy WHERE id=$rows+1";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($result); ?>
       <div class="row" id="box">
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="picture"></div>
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
