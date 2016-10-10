@@ -81,8 +81,11 @@
 <div class="wrapper row3">
   <main class="hoc container clear"> 
     <?php
+      $rows = "SELECT * from buy";
+      $result = mysqli_query($conn, $rows);
+      $row = mysqli_fetch_array($result);
       
-      for ($rows = 0; $rows<2; $rows++) 
+      for ($rows = 0; $rows<count($row); $rows++) 
       {  
         $sql = "SELECT * FROM buy WHERE id=$rows+1";
         $result = mysqli_query($conn, $sql);
@@ -138,37 +141,38 @@
         
         debug_to_console( "Test+$rows" );
         echo '
-        <div class="srpTxt timeLeftTxt">Time Left</div>
-        <table width="100%">
-        <tr class="counter Red">
-          <td id="days"></td>
-          <td valign="top">:</td>
-          <td id="hrs"></td>
-          <td valign="top">:</td>
-          <td id="mins"></td>
-        </tr>
-        <tr>
-          <td>DAYS</td>
-          <td>&nbsp;</td>
-          <td>HRS</td>
-          <td>&nbsp;</td>
-          <td>MINS</td>
-        </tr>
-        </table>
-        <table width="100%" class="borderT">
-        <tr>
-          <td>
-            <div class="srpTxt reserveMet text-left ">Reserve Met : No</div>
-          </td>
-        </tr>
-        </table>';
+          <div class="srpTxt timeLeftTxt">Time Left</div>
+          <table width="100%">
+          <tr class="counter Red">
+            <td id="DAYS"></td>
+            <td valign="top">:</td>
+            <td id="hrs"></td>
+            <td valign="top">:</td>
+            <td id="mins"></td>
+          </tr>
+          <tr>
+            <td>DAYS</td>
+            <td>&nbsp;</td>
+            <td>HRS</td>
+            <td>&nbsp;</td>
+            <td>MINS</td>
+          </tr>
+          </table>
+          <table width="100%" class="borderT">
+          <tr>
+            <td>
+              <div class="srpTxt reserveMet text-left ">Reserve Met : No</div>
+            </td>
+          </tr>
+          </table>';
         ?>
         <script>
           var deadline = "<?php echo $end_date ?>";
           console.log(deadline);
         </script>
         <script src="../../layout/scripts/countdown.js"></script>
-        <?php debug_to_console( "Test + $rows" ); echo '</div>
+        <?php 
+            debug_to_console( "Test + $rows" ); echo '</div>
             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-center paddingLR0 " >
               <div class="srpTxt timeLeftTxt">Starting Bid</div>
               <div class="bidAmd robotoregular">$29,000</div>
