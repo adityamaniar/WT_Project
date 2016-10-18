@@ -85,7 +85,7 @@
       $result = mysqli_query($conn, $rows);
       $row = mysqli_fetch_array($result);
       
-      for ($rows = 0; $rows<count($row); $rows++) 
+      for ($rows = 0; $rows<2; $rows++) 
       {  
         $sql = "SELECT * FROM buy WHERE id=$rows+1";
         $result = mysqli_query($conn, $sql);
@@ -139,16 +139,16 @@
         
           $end_date = $row["end_date"];
         
-        debug_to_console( "Test+$rows" );
+        debug_to_console($row['id']);
         echo '
           <div class="srpTxt timeLeftTxt">Time Left</div>
           <table width="100%">
           <tr class="counter Red">
-            <td id="DAYS"></td>
+            <td id="days'.$row['id'].'"></td>
             <td valign="top">:</td>
-            <td id="hrs"></td>
+            <td id="hrs'.$row['id'].'"></td>
             <td valign="top">:</td>
-            <td id="mins"></td>
+            <td id="mins'.$row['id'].'"></td>
           </tr>
           <tr>
             <td>DAYS</td>
@@ -169,14 +169,51 @@
         <script>
           var deadline = "<?php echo $end_date ?>";
           console.log(deadline);
+          function getTimeRemaining(endtime) {
+            var t = Date.parse(endtime) - Date.parse(new Date());
+            var seconds = Math.floor((t / 1000) % 60);
+            var minutes = Math.floor((t / 1000 / 60) % 60);
+            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+            var days = Math.floor(t / (1000 * 60 * 60 * 24));
+            return {
+              'total': t,
+              'days': days,
+              'hours': hours,
+              'minutes': minutes,
+              'seconds': seconds
+            };
+          }
+
+          function initializeClock(endtime) {
+            var daysSpan = document.getElementById('days'+<?php echo $row['id']?>);
+            var hoursSpan = document.getElementById('hrs'+<?php echo $row['id']?>);
+            var minutesSpan = document.getElementById('mins'+<?php echo $row['id']?>);
+
+            function updateClock() {
+              var t = getTimeRemaining(endtime);
+
+              daysSpan.innerHTML = t.days;
+              hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+              minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+
+              if (t.total <= 0) {
+                clearInterval(timeinterval);
+              }
+            }
+
+            updateClock();
+            var timeinterval = setInterval(updateClock, 1000);
+          }
+
+          initializeClock(deadline);
         </script>
-        <script src="../../layout/scripts/countdown.js"></script>
+        <!--<script src="../../layout/scripts/countdown.js"></script>-->
         <?php 
             debug_to_console( "Test + $rows" ); echo '</div>
             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-center paddingLR0 " >
               <div class="srpTxt timeLeftTxt">Starting Bid</div>
               <div class="bidAmd robotoregular">$29,000</div>
-              <a href="/property/870965992-305-W-Jenny-Street-Bay-City-MI-48706" type="button" class="btn btn-default textFade viewDetails robotoregular pdpLink" pg="1" currentPropId="870965992" currentPosition="1">View Details</a>
+              <a href="property.php?id='.$row['id'].'" type="button" class="btn btn-default textFade viewDetails robotoregular pdpLink" pg="1" currentPropId="870965992" currentPosition="1">View Details</a>
             </div>
           </div>
           </div>

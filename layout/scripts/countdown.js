@@ -14,9 +14,9 @@ function getTimeRemaining(endtime) {
 }
 
 function initializeClock(endtime) {
-  var daysSpan = document.getElementById('days');
-  var hoursSpan = document.getElementById('hrs');
-  var minutesSpan = document.getElementById('mins');
+  var daysSpan = document.getElementById('days2');
+  var hoursSpan = document.getElementById('hrs2');
+  var minutesSpan = document.getElementById('mins2');
 
   function updateClock() {
     var t = getTimeRemaining(endtime);
