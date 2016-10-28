@@ -139,7 +139,6 @@
         
           $end_date = $row["end_date"];
         
-        debug_to_console($row['id']);
         echo '
           <div class="srpTxt timeLeftTxt">Time Left</div>
           <table width="100%">
@@ -207,13 +206,13 @@
 
           initializeClock(deadline);
         </script>
-        <!--<script src="../../layout/scripts/countdown.js"></script>-->
+
         <?php 
-            debug_to_console( "Test + $rows" ); echo '</div>
+            echo '</div>
             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-center paddingLR0 " >
               <div class="srpTxt timeLeftTxt">Starting Bid</div>
               <div class="bidAmd robotoregular">$29,000</div>
-              <a href="property.php?id='.$row['id'].'" type="button" class="btn btn-default textFade viewDetails robotoregular pdpLink" pg="1" currentPropId="870965992" currentPosition="1">View Details</a>
+              <a href="property.php?id='.$row['id'].'" type="button" class="view_details">View Details</a>
             </div>
           </div>
           </div>
@@ -286,6 +285,6 @@
 <script src="../../layout/scripts/jquery.min.js"></script>
 <script src="../../layout/scripts/jquery.backtotop.js"></script>
 <script src="../../layout/scripts/jquery.mobilemenu.js"></script>
-<script src="../../layout/scripts/countdown.js"></script>-->
+
 </body>
 </html>
