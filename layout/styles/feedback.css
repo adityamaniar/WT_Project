@@ -1,0 +1,36 @@
+.abc {
+	max-width:960px;
+}
+
+blockquote {
+	font-style:italic;
+	margin:0 0 0px 0;
+	padding:20px 70px 10px;
+	position:relative;
+	font-size:15px;
+	border:0;
+}
+
+blockquote:before {
+	display:block;
+	content:"\201C";
+	font-size:120px;
+	position:absolute;
+	left:10px;
+	top:40px;
+	color:black;
+	font-family:Georgia;
+}
+
+blockquote cite {
+	color:black;
+	font-size:14px;
+	display:block;
+	margin-top:5px;
+	text-align:right;
+}
+
+.heading {
+	text-align: center;
+	font-style: italic;
+}
