@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Property</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="../../layout/styles/property.css" rel="stylesheet" type="text/css" media="all">
@@ -97,21 +97,15 @@
 
   	<div class="slideshow-container">
       <div class="mySlides">
-        <div class="numbertext">1 / 3</div>
         <img src="../../images/property/img1.jpg" style="width:100%">
-        <div class="text">Caption Text</div>
       </div>
 
       <div class="mySlides">
-        <div class="numbertext">2 / 3</div>
         <img src="../../images/property/img2.jpg" style="width:100%">
-        <div class="text">Caption Two</div>
       </div>
 
       <div class="mySlides">
-        <div class="numbertext">3 / 3</div>
         <img src="../../images/property/img3.jpg" style="width:100%">
-        <div class="text">Caption Three</div>
       </div>
 
       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -123,6 +117,68 @@
       <span class="dot" onclick="currentSlide(1)"></span> 
       <span class="dot" onclick="currentSlide(2)"></span> 
       <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+
+    <div class="row">
+      <div class="col-sm-7">
+        <h3>Column 1</h3>
+        <div class="row">
+          <div class="col-sm-3">
+            <h3>Column 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+          </div>
+          <div class="col-sm-3">
+            <h3>Column 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+          </div>
+          <div class="col-sm-3">
+            <h3>Column 2</h3>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+          </div>
+          <div class="col-sm-3">
+            <h3>Column 2</h3>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            $13000<br>
+            Starting Bid
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-2">
+            <input type="button" value="-" id="minus">
+          </div>
+          <div class="col-sm-8">
+            <input type="text" value="13000" maxlength="15" autocomplete="off" id="bid_amnt">
+          </div>
+          <div class="col-sm-2">
+            <input type="button" value="+" id="plus">
+          </div>
+        </div>
+
+        <div>
+          <input type="button" value="PLACE BID" />
+        </div>
+
+        <div class="documents">
+          <h3>Documents</h3>
+          <p>The following documents have been provided</p>
+        </div>
+      </div>
+
+      <div class="col-sm-5">
+        <div class="features">
+          <h3>Features</h3>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        </div>
+
+        <div class="Other">
+          <h3>Other</h3>
+        </div>
+      </div>
     </div>
 
   </main>
