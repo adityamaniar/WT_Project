@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-
+<?php 
+  session_start();
+?>
 <html>
    <head>
     <title>WT Project</title>
@@ -9,6 +11,9 @@
     <link href="layout/styles/feedback.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body id="top">
+    <?php
+      $username = $_GET['username'];
+    ?>
     <!-- Top Background Image Wrapper -->
     <div class="bgded overlay" style="background-image:url('images/dkam.jpg');">
       <div class="wrapper row0">
@@ -22,8 +27,7 @@
           <div class="fl_right">
             <ul>
               <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-              <li><a href="pages/login/login.php">Register</a></li>
-              <li><a href="pages/login/signin.php">Login</a></li>
+              <li><?php echo $username ?></li>
             </ul>
           </div>
         </div>
@@ -38,7 +42,7 @@
             <ul class="clear">
               <li class="active"><a href="index.html">Home</a></li>
               <li><a href="pages\buy\buy.php">Buy</a></li>
-              <li><a href="pages\sell.html">Sell</a></li>
+              <li><a href="pages\sell.php">Sell</a></li>
               <li><a href="pages\about_us.html">About Us</a></li>
               <li><a href="pages\faq.html">FAQ</a></li>
               <li><a id="tocontactus" href="#contact_us">Contact Us</a></li>

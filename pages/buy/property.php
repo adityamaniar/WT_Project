@@ -215,25 +215,26 @@
           </div>
         </div>
 
-        <form method="post" action="placeBid.php">
+        <form method="post" action="placeBid.php?id=<?php echo $id ?>">
           <div class="row">
             <div class="col-sm-2">
               <div id="minus" onclick="minus()">-</div>
               <script>
                 function minus() {
-                  if(document.getElementById('bid_value').innerHTML == <?php echo $row['start_bid'] ?> ) {
+                  if(document.getElementById('bid_amnt').value == <?php echo $row['current_bid'] ?> ) {
                     document.getElementById("minus").disabled = true;
                   }
                   else {
+                    document.getElementById("minus").disabled = false;
                     var current = parseInt(document.getElementById('bid_amnt').value);
-                    current+=100000;
+                    current-=100000;
                     document.getElementById('bid_amnt').value = current;
                   }
                 }
               </script>
             </div>
             <div class="col-sm-8 text-center">
-              <input type="text" name="current_bid" value=<?php echo $row["start_bid"] ?> maxlength="15" autocomplete="off" id="bid_amnt">
+              <input type="text" name="current_bid" value=<?php echo $row["current_bid"] ?> maxlength="15" autocomplete="off" id="bid_amnt">
             </div>
             <div class="col-sm-2">
               <div id="plus" onclick="plus()">+</div>
