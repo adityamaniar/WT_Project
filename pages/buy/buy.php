@@ -40,13 +40,6 @@
             <ul class="clear">
               <li class="active"><a href="index.html">Home</a></li>
               <li><a href="pages/buy/buy.php">Buy</a>
-                <!--<ul>
-                  <li><a href="pages/gallery.html">Gallery</a></li>
-                  <li><a href="pages/full-width.html">Full Width</a></li>
-                  <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
-                  <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>
-                  <li><a href="pages/basic-grid.html">Basic Grid</a></li>
-                </ul>-->
               </li>
               <li><a class="drop" href="#">Sell</a>
                 <ul>
@@ -210,8 +203,10 @@
         <?php 
             echo '</div>
             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-center paddingLR0 " >
-              <div class="srpTxt timeLeftTxt">Starting Bid</div>
-              <div class="bidAmd robotoregular">$29,000</div>
+              <div class="srpTxt timeLeftTxt">Current Bid</div>
+              <div class="bidAmd robotoregular">Rs.';
+              echo $row['current_bid'];
+              echo '</div>
               <a href="property.php?id='.$row['id'].'" type="button" class="view_details">View Details</a>
             </div>
           </div>

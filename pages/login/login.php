@@ -28,20 +28,20 @@
         <div id="signup">   
           <h1>WELCOME</h1>
           
-          <form action="/" method="post">
+          <form action="signup.php" method="post">
           <div class="top-row">
             <div class="field-wrap">
               <label>
                 First Name<span class="req">*</span>
               </label>
-              <input type="text" required autocomplete="off" />
+              <input type="text" name="fname" required autocomplete="off" />
             </div>
         
             <div class="field-wrap">
               <label>
                 Last Name<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off"/>
+              <input type="text" name="lname" required autocomplete="off"/>
             </div>
           </div>
 
@@ -49,14 +49,14 @@
             <label>
               Email Address<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off"/>
+            <input type="email" name="email" required autocomplete="off"/>
           </div>
           
           <div class="field-wrap">
             <label>
               Enter Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input type="password" name="password" required autocomplete="off"/>
           </div>
           
           <button type="submit" class="button button-block"/>Register</button>
@@ -104,9 +104,9 @@
         
       </div><!-- tab-content -->
       
-</div> <!-- /form -->
+    </div> <!-- /form -->
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-        <script src="../../layout/scripts/login.js"></script>
+    <script src="../../layout/scripts/login.js"></script>
   </body>
 </html>
