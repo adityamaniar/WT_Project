@@ -16,7 +16,7 @@
   $id = $_GET['id'];
 ?>
 <!-- Top Background Image Wrapper -->
-    <div class="bgded overlay" style="background-image:url('../../images/dkam.jpg');">
+    <div class="bgded overlay" style="background-image:url('../../images/demo/backgrounds/01.png');">
       <div class="wrapper row0">
         <div id="topbar" class="hoc clear"> 
           <div class="fl_left">
@@ -28,7 +28,6 @@
           <div class="fl_right">
             <ul>
               <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-              <li><a href="pages/login.html">Login/Register</a></li>
             </ul>
           </div>
         </div>
@@ -37,27 +36,15 @@
       <div class="wrapper row1">
         <header id="header" class="hoc clear"> 
           <div id="logo" class="fl_left">
-            <h1><a href="index.html">Aditya</a></h1>
+            <h1><a href="../../index.html"></a>Homeland</h1>
           </div>
           <nav id="mainav" class="fl_right">
             <ul class="clear">
-              <li class="active1"><a href="index.html">Home</a></li>
-              <li><a href="pages/buy/buy.php">Buy</a>
-              </li>
-              <li><a class="drop" href="#">Sell</a>
-                <ul>
-                  <li><a href="#">Level 2</a></li>
-                  <li><a class="drop" href="#">Level 2 + Drop</a>
-                    <ul>
-                      <li><a href="#">Level 3</a></li>
-                      <li><a href="#">Level 3</a></li>
-                      <li><a href="#">Level 3</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Level 2</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Calendar</a></li>
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="buy.php">Buy</a></li>
+              <li><a href="..\Sell.html">Sell</a></li>
+              <li><a href="..\about_us.html">About Us</a></li>
+              <li><a href="..\faq.html">FAQ</a></li>
               <li><a id="tocontactus" href="#contact_us">Contact Us</a></li>
             </ul>
           </nav>
@@ -110,11 +97,11 @@
 
   	<div class="slideshow-container">
       <div class="mySlides">
-        <img src="../../images/property/img1.jpg" style="width:100%">
+        <img src="../../images/property/prop.jpg" style="width:100%">
       </div>
 
       <div class="mySlides">
-        <img src="../../images/property/img2.jpg" style="width:100%">
+        <img src="../../images/property/prop1.jpg" style="width:100%">
       </div>
 
       <div class="mySlides">
@@ -256,17 +243,22 @@
         <div class="documents">
           <h3>Documents</h3>
           <p>The following documents have been provided</p>
+          <ul>
+            <li><a href="C:\Users\aditya\Downloads\Attendance Sheet New.pdf" download>Legal document</a></li>
+            <li><a href="djfgbj" download>Legal document 2</a></li>
         </div>
       </div>
 
       <div class="col-sm-5">
-        <div class="features">
-          <h3>Features</h3>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
+        
 
         <div class="Other">
-          <h3>Other</h3>
+          <h3>Description</h3>
+          <h5>SPECIAL SERVICING CONDITIONS APPLY</h5>
+          <p>Note: This property is associated with a special servicer. Selected bids and offers for special servicing properties are subject to approval through a third party financial institution and are not guaranteed approval. Bid/offer review and contract generation may take several weeks. 
+
+            12 bedroom 13 bathroom multifamily home located in Amsterdam NY! Home located near the Mohawk River and Bergen Park with easy access to major roadways.
+            The property information provided here is for reference only, but is not guaranteed to be accurate. It is the buyer's responsibility to verify all property information.</p>
         </div>
       </div>
     </div>

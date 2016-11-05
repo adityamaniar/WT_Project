@@ -13,7 +13,7 @@
   require_once('connection.php');
 ?>
 <!-- Top Background Image Wrapper -->
-    <div class="bgded overlay" style="background-image:url('../../images/dkam.jpg');">
+    <div class="bgded overlay" style="background-image:url('../../images/backgrounds/01.png');">
       <div class="wrapper row0">
         <div id="topbar" class="hoc clear"> 
           <div class="fl_left">
@@ -25,7 +25,7 @@
           <div class="fl_right">
             <ul>
               <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-              <li><a href="pages/login.html">Login/Register</a></li>
+              <li><a href="#">Aditya</a></li>
             </ul>
           </div>
         </div>
@@ -34,27 +34,15 @@
       <div class="wrapper row1">
         <header id="header" class="hoc clear"> 
           <div id="logo" class="fl_left">
-            <h1><a href="index.html">Homeland</a></h1>
+            <h1><a href="index.html"></a>Homeland</h1>
           </div>
           <nav id="mainav" class="fl_right">
             <ul class="clear">
-              <li class="active"><a href="index.html">Home</a></li>
-              <li><a href="pages/buy/buy.php">Buy</a>
-              </li>
-              <li><a class="drop" href="#">Sell</a>
-                <ul>
-                  <li><a href="#">Level 2</a></li>
-                  <li><a class="drop" href="#">Level 2 + Drop</a>
-                    <ul>
-                      <li><a href="#">Level 3</a></li>
-                      <li><a href="#">Level 3</a></li>
-                      <li><a href="#">Level 3</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Level 2</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Calendar</a></li>
+              <li><a href="../../index.html">Home</a></li>
+              <li class="active"><a href="buy.php">Buy</a></li>
+              <li><a href="..\Sell.php">Sell</a></li>
+              <li><a href="..\about_us.html">About Us</a></li>
+              <li><a href="..\faq.html">FAQ</a></li>
               <li><a id="tocontactus" href="#contact_us">Contact Us</a></li>
             </ul>
           </nav>

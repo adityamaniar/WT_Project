@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php 
+  session_start();
+  require_once("buy/connection.php");
+?>
 <html>
 <head>
 <title>Sell</title>
@@ -62,19 +66,17 @@
   <main class="hoc container clear"> 
 
     <!-- main body -->
-  <form>
+  <form action="sellprop.php" method="post" enctype="multipart/form-data">
     <div>
       <h1>Details :</h1>
         <span class="req">Name*:</span>
-        <input id="name" type="text"required autocomplete="off" name="name" />
+        <input id="name" type="text"required autocomplete="off" name="fname" />
         <span class="req">Surname*:</span>
-        <input id="name" type="text"required autocomplete="off" name="name" />
-        <span class="req">Password*:</span>
-        <input id="password" type="password"required autocomplete="off" name="password" />
+        <input id="name" type="text"required autocomplete="off" name="lname" />
         <span class="req">Email Address*:</span>
         <input id="email" type="text"required autocomplete="off" name="email" />
         <span class="req">Address of the Property*:</span>
-        <textarea id="feedback" type="text"required name="feedback" autocomplete="off" style="margin-left: 350px;"></textarea>
+        <textarea id="feedback" type="text"required name="address" autocomplete="off" style="margin-left: 350px;"></textarea>
         <span class="req">Area of the Property(in sq ft.)*:</span>
         <input type="text"required autocomplete="off" name="area" />
         <span class="req">Beds*:</span>
@@ -84,16 +86,16 @@
         <span class="req">Initial Bid*:</span>
         <input type="number"required autocomplete="off" name="inibid" /><br>
         <span class="req">Minimum Bid*:</span>
-        <input type="number"required autocomplete="off" name="inibid" /><br>
+        <input type="number"required autocomplete="off" name="minibid" /><br>
         <span class="req">End date*:</span>
-        <input type="date"required autocomplete="off" name="inibid" /><br>
+        <input type="date"required autocomplete="off" name="end_date" /><br>
         <span class="req">Upload images of your property*:</span>
         <input type="file"required autocomplete="off" name="img" multiple>
         <span class="req">Upload documents of your property*:</span>
-        <input type="file"required autocomplete="off" name="img" multiple><br>
+        <input type="file"required autocomplete="off" name="docs" multiple><br>
         <span class="req">Type of property*:</span><br><br>
         Single Family<input type="radio"required name="chooseone" ><br>
- 		Double family<input type="radio"required name="chooseone"><br>
+ 		    Double family<input type="radio"required name="chooseone"><br>
         <button type="submit" class="button button-block"/>Register</button><br>
       </div>
     </form>
