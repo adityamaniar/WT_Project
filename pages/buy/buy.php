@@ -40,7 +40,7 @@
             <ul class="clear">
               <li><a href="../../index.html">Home</a></li>
               <li class="active"><a href="buy.php">Buy</a></li>
-              <li><a href="..\Sell.php">Sell</a></li>
+              <li><a href="..\Sell.html">Sell</a></li>
               <li><a href="..\about_us.html">About Us</a></li>
               <li><a href="..\faq.html">FAQ</a></li>
               <li><a id="tocontactus" href="#contact_us">Contact Us</a></li>
@@ -62,18 +62,21 @@
 <div class="wrapper row3">
   <main class="hoc container clear"> 
     <?php
-      $rows = "SELECT * from buy";
+      $rows = "SELECT count(1) from buy";
       $result = mysqli_query($conn, $rows);
       $row = mysqli_fetch_array($result);
+      $total = $row[0];
       
-      for ($rows = 0; $rows<2; $rows++) 
+      for ($rows = 0; $rows<$total; $rows++) 
       {  
         $sql = "SELECT * FROM buy WHERE id=$rows+1";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($result);
-      
+
         echo '<div class="row" id="box">
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="picture"></div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">';
+                echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';
+                echo '</div>
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                   <address>
                     <span class="address pull-left">';
@@ -92,18 +95,14 @@
         echo  '</span>
               <span class="poolTxt hidden-sm pull-left">';
                 
-                $a = $row["bank_owned"];
-                if($a == 1)
-                  echo "Bank Owned";
-                else
-                  echo "Self Owned";
+                
                 
         echo '</span>
               <div class="clearfix"></div>
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 beds"><div>';
         echo $row["beds"];
         echo    '</div>
-            <div class="srpTxt ">Beds</div>
+            <div class="srpTxt">Beds</div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 baths">';
            
@@ -148,7 +147,6 @@
         ?>
         <script>
           var deadline = "<?php echo $end_date ?>";
-          console.log(deadline);
           function getTimeRemaining(endtime) {
             var t = Date.parse(endtime) - Date.parse(new Date());
             var seconds = Math.floor((t / 1000) % 60);

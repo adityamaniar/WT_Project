@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<?php 
-  session_start();
-  require_once("buy/connection.php");
-?>
 <html>
 <head>
 <title>Sell</title>
@@ -12,13 +8,10 @@
 <link href="../layout/styles/sell.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body id="top">
-<!-- ################################################################################################ -->
 <!-- Top Background Image Wrapper -->
 <div class="bgded overlay" style="background-image:url('../images/demo/backgrounds/01.png');"> 
-  <!-- ################################################################################################ -->
   <div class="wrapper row0">
     <div id="topbar" class="hoc clear"> 
-      <!-- ################################################################################################ -->
       <div class="fl_left">
         <ul class="nospace">
           <li><i class="fa fa-phone"></i> (022) 28991988</li>
@@ -31,15 +24,11 @@
           <li><a href="#">Login/Register</a></li>
         </ul>
       </div>
-      <!-- ################################################################################################ -->
     </div>
   </div>
-  <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
+  
   <div class="wrapper row1">
     <header id="header" class="hoc clear"> 
-      <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
         <h1><a href="../index.html">Homeland</a></h1>
       </div>
@@ -55,13 +44,9 @@
           </nav>
         </header>
       </div>
-  <!-- ################################################################################################ -->
 </div>
 <!-- End Top Background Image Wrapper -->
 
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
 <div class="wrapper row3" style="background-color: grey">
   <main class="hoc container clear"> 
 
@@ -90,21 +75,19 @@
         <span class="req">End date*:</span>
         <input type="date"required autocomplete="off" name="end_date" /><br>
         <span class="req">Upload images of your property*:</span>
-        <input type="file"required autocomplete="off" name="img" multiple>
+        <input required name="userfile" type="file" multiple>
         <span class="req">Upload documents of your property*:</span>
         <input type="file"required autocomplete="off" name="docs" multiple><br>
         <span class="req">Type of property*:</span><br><br>
-        Single Family<input type="radio"required name="chooseone" ><br>
- 		    Double family<input type="radio"required name="chooseone"><br>
+        Single Family<input type="radio"required name="chooseone" value="Single Family"><br>
+ 		    Double family<input type="radio"required name="chooseone" value="Double Family"><br>
         <button type="submit" class="button button-block"/>Register</button><br>
       </div>
     </form>
     <div class="clear"></div>
   </main>
 </div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
+
     <div id="contact_us" class="wrapper row4 bgded overlay" style="background-image:url('../images/demo/backgrounds/01.png');">
   <footer id="footer" class="hoc clear">
     <div class="one_third first">

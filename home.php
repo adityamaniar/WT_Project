@@ -28,6 +28,7 @@
             <ul>
               <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
               <li><?php echo $username ?></li>
+              <li>Logout</li>
             </ul>
           </div>
         </div>

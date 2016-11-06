@@ -7,10 +7,9 @@
 #picture {
 	float:left;
 	width:280px;
-	height:190px;
+	height:140px;
 	margin-right:10px;
 	border-radius: 5px 0px 0px 5px;
-	background-image: url("../../images/dkam.jpg");
 }
 
 #box {
