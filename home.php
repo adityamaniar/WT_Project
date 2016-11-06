@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php 
   session_start();
+  if (isset($_SESSION['user'])) {
+      $username = $_SESSION['user'];
+  }
 ?>
 <html>
    <head>
@@ -11,9 +14,6 @@
     <link href="layout/styles/feedback.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body id="top">
-    <?php
-      $username = $_GET['username'];
-    ?>
     <!-- Top Background Image Wrapper -->
     <div class="bgded overlay" style="background-image:url('images/dkam.jpg');">
       <div class="wrapper row0">
@@ -41,7 +41,7 @@
           </div>
           <nav id="mainav" class="fl_right">
             <ul class="clear">
-              <li class="active"><a href="index.html">Home</a></li>
+              <li class="active"><a href="index.php">Home</a></li>
               <li><a href="pages\buy\buy.php">Buy</a></li>
               <li><a href="pages\sell.php">Sell</a></li>
               <li><a href="pages\about_us.html">About Us</a></li>

@@ -16,7 +16,7 @@
   $id = $_GET['id'];
 ?>
 <!-- Top Background Image Wrapper -->
-    <div class="bgded overlay" style="background-image:url('../../images/demo/backgrounds/01.png');">
+    <div class="bgded overlay">
       <div class="wrapper row0">
         <div id="topbar" class="hoc clear"> 
           <div class="fl_left">
@@ -28,6 +28,16 @@
           <div class="fl_right">
             <ul>
               <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
+              <?php
+                if (isset($_SESSION['user'])) {
+                  echo '<li>';
+                  echo $_SESSION['user'];
+                  echo '</li> <li>Logout</li>';
+                }
+                else {
+                  echo '<li><a href="../login/signin.php">Login</a></li>';
+                }
+              ?>
             </ul>
           </div>
         </div>
@@ -36,13 +46,13 @@
       <div class="wrapper row1">
         <header id="header" class="hoc clear"> 
           <div id="logo" class="fl_left">
-            <h1><a href="../../index.html"></a>Homeland</h1>
+            <h1><a href="../../index.php">Homeland</a></h1>
           </div>
           <nav id="mainav" class="fl_right">
             <ul class="clear">
-              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../../index.php">Home</a></li>
               <li><a href="buy.php">Buy</a></li>
-              <li><a href="..\Sell.html">Sell</a></li>
+              <li><a href="..\sell.php">Sell</a></li>
               <li><a href="..\about_us.html">About Us</a></li>
               <li><a href="..\faq.html">FAQ</a></li>
               <li><a id="tocontactus" href="#contact_us">Contact Us</a></li>
@@ -143,10 +153,17 @@
 
         <?php
           $end_date = $row["end_date"];
+          $email = $row["email"];
+          $bidder_name = $row["bidder_name"];
+          $price = $row["current_bid"];
         ?>
 
         <script>
           var deadline = "<?php echo $end_date ?>";
+          var email = "<?php echo $email ?>";
+          var bidder_name = "<?php echo $bidder_name ?>";
+          var price = "<?php echo $price ?>";
+          var id = "<?php echo $id ?>";
           function getTimeRemaining(endtime) {
             var t = Date.parse(endtime) - Date.parse(new Date());
             var seconds = Math.floor((t / 1000) % 60);
@@ -177,8 +194,9 @@
               minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
               secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
-              if (t.total <= 0) {
-                clearInterval(timeinterval);
+              console.log(t.total);
+              if (t.total == 1663250000) {
+                window.location = "sendemail.php?email=" +email+"&bidder_name="+bidder_name+"&price="+price+"&id="+id;
               }
             }
 

@@ -17,6 +17,7 @@
 	//Check whether the query was successful or not
 	if($result) {
 		if(mysqli_num_rows($result) > 0) {
+			$_SESSION['user'] = $username;
 			header("location: ../../home.php?username=$username");
 			exit();
 		}

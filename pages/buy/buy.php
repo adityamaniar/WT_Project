@@ -11,6 +11,9 @@
 <?php 
   session_start();
   require_once('connection.php');
+  if (isset($_SESSION['user'])) {
+   $username = $_SESSION['user'];
+ }
 ?>
 <!-- Top Background Image Wrapper -->
     <div class="bgded overlay" style="background-image:url('../../images/backgrounds/01.png');">
@@ -25,7 +28,11 @@
           <div class="fl_right">
             <ul>
               <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-              <li><a href="#">Aditya</a></li>
+              <li><a href="#"><?php 
+              if (isset($_SESSION['user'])) {
+                echo $username;
+              } ?></a></li>
+              <li>Logout</li>
             </ul>
           </div>
         </div>
@@ -38,9 +45,9 @@
           </div>
           <nav id="mainav" class="fl_right">
             <ul class="clear">
-              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../../index.php">Home</a></li>
               <li class="active"><a href="buy.php">Buy</a></li>
-              <li><a href="..\Sell.html">Sell</a></li>
+              <li><a href="..\sell.php">Sell</a></li>
               <li><a href="..\about_us.html">About Us</a></li>
               <li><a href="..\faq.html">FAQ</a></li>
               <li><a id="tocontactus" href="#contact_us">Contact Us</a></li>

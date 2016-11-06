@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  require("connection.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +25,12 @@
       <div class="fl_right">
         <ul class="nospace">
           <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-          <li><a href="#">Login/Register</a></li>
+          <li><a href="#"><?php if (isset($_SESSION['user'])) {
+            echo $_SESSION['user'];
+          } else {
+            echo "Login";
+          } ?></a></li>
+          <li>Logout</li>
         </ul>
       </div>
     </div>
@@ -30,11 +39,11 @@
   <div class="wrapper row1">
     <header id="header" class="hoc clear"> 
       <div id="logo" class="fl_left">
-        <h1><a href="../index.html">Homeland</a></h1>
+        <h1><a href="../index.php">Homeland</a></h1>
       </div>
      <nav id="mainav" class="fl_right">
             <ul class="clear">
-              <li><a href="..\index.html">Home</a></li>
+              <li><a href="..\index.php">Home</a></li>
               <li><a href="buy\buy.php">Buy</a></li>
               <li class="active"><a href="sell.php">Sell</a></li>
               <li><a href="about_us.html">About Us</a></li>

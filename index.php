@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-
+<?php 
+  session_start();
+  if (isset($_SESSION['user'])) {
+   header("location: home.php");
+ }
+?>
 <html>
    <head>
     <title>WT Project</title>
@@ -38,7 +43,7 @@
             <ul class="clear">
               <li class="active"><a href="index.html">Home</a></li>
               <li><a href="pages\buy\buy.php">Buy</a></li>
-              <li><a href="pages\Sell.html">Sell</a></li>
+              <li><a href="pages\sell.php">Sell</a></li>
               <li><a href="pages\about_us.html">About Us</a></li>
               <li><a href="pages\faq.html">FAQ</a></li>
               <li><a id="tocontactus" href="#contact_us">Contact Us</a></li>
