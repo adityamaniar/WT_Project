@@ -1,9 +1,6 @@
 <?php 
   session_start();
   require_once("connection.php");
-  if (isset($_SESSION['user'])) {
-   header("location: buy1.php");
- }
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,8 +25,17 @@
           <div class="fl_right">
             <ul>
               <li style="font-size: 12px;"><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-              <li style="font-size: 12px;"><a href="../login/login.php">Register</a></li>
-              <li style="font-size: 12px;"><a href="../login/signin.php">Login</li>
+              <?php
+                if (isset($_SESSION['user'])) {
+                  echo '<li style="font-size: 12px;">';
+                  echo $_SESSION['user'];
+                  echo '</li> <li style="font-size: 12px;"><a href="../logout.php">Logout</a></li>';
+                }
+                else {
+                  echo '<li style="font-size: 12px;"><a href="../login/login.php">Register</a></li>';
+                  echo '<li style="font-size: 12px;"><a href="../login/signin.php">Login</a></li>';
+                }
+              ?>
             </ul>
           </div>
         </div>
@@ -65,9 +71,9 @@
 
 <div class="wrapper row3">
   <main class="hoc container clear">
-    <form method="post" action="?"> 
-      <button class="search" style="float: left; height:40px; width:150px; margin-right:30px; margin-left:220px; background-color:orange;">Search</button>
-      <input type="text" name="pincode" placeholder="Enter pincode" class="search_box" style="height:40px; width:300px;padding-left:30px; margin-left:40px;" /><br/>
+    <form method="post" action="?">
+      <button class="search" style="float: left; height:40px; width:150px; margin-right:30px; margin-left:220px; background-color:orange; border-radius: 10px;">Search</button>
+      <input type="text" name="pincode" placeholder="Enter pincode" class="search_box" style="height:40px; width:300px;padding-left:10px; margin-left:40px;" /><br/>
     </form>
     <form action="?" method="post">
       <button name="unset" style="margin:auto; background-color:orange; height=30px; width:100px;">Unset Filter</button>
@@ -75,36 +81,19 @@
     <?php
       if(isset($_POST['pincode'])) {
         $pincode = $_POST['pincode'];
-        $_SESSION['pincode'] = $pincode;
+        $rows = "SELECT * from buy where pincode=$pincode";
+        $result = mysqli_query($conn, $rows);
+      }
+      else {
+        $rows = "SELECT * from buy";
+        $result = mysqli_query($conn, $rows);
       }
       if(isset($_POST['unset'])) {
         unset($_SESSION['pincode']);
       }
-      if(isset($_SESSION['pincode'])) {
-        $rows = "SELECT count(1) from buy where pincode=$pincode";
-        $result = mysqli_query($conn, $rows);
-        $row = mysqli_fetch_array($result);
-        $total = $row[0];
-      }
-      else {
-        $rows = "SELECT count(1) from buy";
-        $result = mysqli_query($conn, $rows);
-        $row = mysqli_fetch_array($result);
-        $total = $row[0];
-      }
-      
-      for ($rows = 0; $rows<$total; $rows++) 
+
+      while ($row = mysqli_fetch_assoc($result)) 
       {  
-        if(isset($_SESSION['pincode'])) {
-          $sql = "SELECT * FROM buy WHERE id=$rows+1 AND pincode=$pincode";
-          $result = mysqli_query($conn, $sql);
-          $row = mysqli_fetch_array($result);
-        }
-        else {
-          $sql = "SELECT * FROM buy WHERE id=$rows+1";
-          $result = mysqli_query($conn, $sql);
-          $row = mysqli_fetch_array($result);
-        }
 
         echo '<div class="row" id="box">
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">';

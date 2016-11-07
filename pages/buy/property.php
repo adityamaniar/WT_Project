@@ -224,7 +224,7 @@
         <form method="post" action="placeBid.php?id=<?php echo $id ?>">
           <div class="row">
             <div class="col-sm-2">
-              <div id="minus" class="btn btn-default textFade viewDetails robotoregular pdpLink" onclick="minus()" >-</div>
+              <div id="minus" class="btn btn-default textFade viewDetails robotoregular pdpLink" style="background-color:orange" onclick="minus()" >-</div>
               <script>
                 function minus() {
                   if(document.getElementById('bid_amnt').value == <?php echo $row['current_bid'] ?> ) {
@@ -243,7 +243,7 @@
               <input type="text" name="current_bid" value=<?php echo $row["current_bid"] ?> maxlength="15" autocomplete="off" id="bid_amnt">
             </div>
             <div class="col-sm-2">
-              <div id="plus" class="btn btn-default textFade viewDetails robotoregular pdpLink" onclick="plus()">+</div>
+              <div id="plus" class="btn btn-default textFade viewDetails robotoregular pdpLink" style="background-color:orange" onclick="plus()">+</div>
               <script>
                 function plus() {
                   var current = parseInt(document.getElementById('bid_amnt').value);
@@ -255,7 +255,7 @@
           </div>
 
           <div class="cent">
-             <br><button type="submit" class="clicks"/>Place Bid</button><br>
+             <br><button type="submit" style="background-color:orange" class="clicks"/>Place Bid</button><br>
           </div>
         </form>
 
