@@ -11,7 +11,7 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Sign-Up/Login Form</title>
+    <title>Sign Up/Login Form</title>
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../../layout/styles/login.css"> 
     <link rel="stylesheet" href="../../layout/styles/login1.css"> 
@@ -50,25 +50,41 @@
 
         </div>
         
-        <div id="login">   
-          <h1>Welcome Back!</h1>
+        <div id="signup">   
+          <h1>WELCOME</h1>
           
-          <form action="logup.php" method="post">
+          <form action="signup.php" method="post">
+          <div class="top-row">
             <div class="field-wrap">
               <label>
-                Email Address<span class="req">*</span>
+                First Name<span class="req">*</span>
               </label>
-              <input type="email" name="email" required autocomplete="off"/>
+              <input type="text" name="fname" required autocomplete="off" />
             </div>
-          
+        
             <div class="field-wrap">
               <label>
-                Password<span class="req">*</span>
+                Last Name<span class="req">*</span>
               </label>
-              <input type="password" name="password" required autocomplete="off"/>
+              <input type="text" name="lname" required autocomplete="off"/>
             </div>
-            
-            <button class="button button-block"/>Log In</button>
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              Email Address<span class="req">*</span>
+            </label>
+            <input type="email" name="email" required autocomplete="off"/>
+          </div>
+          
+          <div class="field-wrap">
+            <label>
+              Enter Password<span class="req">*</span>
+            </label>
+            <input type="password" name="password" required autocomplete="off"/>
+          </div>
+          
+          <button type="submit" class="button button-block"/>Register</button>
           
           </form>
 

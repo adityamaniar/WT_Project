@@ -21,21 +21,22 @@
         <div id="topbar" class="hoc clear"> 
           <div class="fl_left">
             <ul>
-              <li id="phone"><i class="fa fa-phone"></i> (022) 28991988</li>
-              <li><i class="fa fa-envelope-o"></i> onlineauction@gmail.com</li>
+              <li style="font-size: 12px;"><i class="fa fa-phone"></i> (022) 28991988</li>
+              <li style="font-size: 12px;"><i class="fa fa-envelope-o"></i> onlineauction@gmail.com</li>
             </ul>
           </div>
           <div class="fl_right">
             <ul>
-              <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
+              <li style="font-size: 12px;"><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
               <?php
                 if (isset($_SESSION['user'])) {
-                  echo '<li>';
+                  echo '<li style="font-size: 12px;">';
                   echo $_SESSION['user'];
-                  echo '</li> <li>Logout</li>';
+                  echo '</li> <li style="font-size: 12px;"><a href="../logout.php">Logout</a></li>';
                 }
                 else {
-                  echo '<li><a href="../login/signin.php">Login</a></li>';
+                  echo '<li style="font-size: 12px;"><a href="../login/login.php">Register</a></li>';
+                  echo '<li style="font-size: 12px;"><a href="../login/signin.php">Login</a></li>';
                 }
               ?>
             </ul>
@@ -210,12 +211,12 @@
         <div class="row text-center">
           <div class="col-sm-12" id="current_bid">
             <h3>Rs. <span id="bid_value"><?php echo $row['current_bid']; ?></span></h3>
-            <p>Current Highest Bid</p>
+            <b>Current Highest Bid</b>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-12" style="margin-bottom: 30px; margin-top: 20px;">
             Starting Bid : Rs. <?php echo $row['start_bid']; ?>
           </div>
         </div>
@@ -223,7 +224,7 @@
         <form method="post" action="placeBid.php?id=<?php echo $id ?>">
           <div class="row">
             <div class="col-sm-2">
-              <div id="minus" onclick="minus()">-</div>
+              <div id="minus" class="btn btn-default textFade viewDetails robotoregular pdpLink" onclick="minus()" >-</div>
               <script>
                 function minus() {
                   if(document.getElementById('bid_amnt').value == <?php echo $row['current_bid'] ?> ) {
@@ -242,7 +243,7 @@
               <input type="text" name="current_bid" value=<?php echo $row["current_bid"] ?> maxlength="15" autocomplete="off" id="bid_amnt">
             </div>
             <div class="col-sm-2">
-              <div id="plus" onclick="plus()">+</div>
+              <div id="plus" class="btn btn-default textFade viewDetails robotoregular pdpLink" onclick="plus()">+</div>
               <script>
                 function plus() {
                   var current = parseInt(document.getElementById('bid_amnt').value);
@@ -253,8 +254,8 @@
             </div>
           </div>
 
-          <div>
-            <input id="placeBid"type="submit" value="PLACE BID" />
+          <div class="cent">
+             <br><button type="submit" class="clicks"/>Place Bid</button><br>
           </div>
         </form>
 
@@ -273,10 +274,8 @@
         <div class="Other">
           <h3>Description</h3>
           <h5>SPECIAL SERVICING CONDITIONS APPLY</h5>
-          <p>Note: This property is associated with a special servicer. Selected bids and offers for special servicing properties are subject to approval through a third party financial institution and are not guaranteed approval. Bid/offer review and contract generation may take several weeks. 
-
-            12 bedroom 13 bathroom multifamily home located in Amsterdam NY! Home located near the Mohawk River and Bergen Park with easy access to major roadways.
-            The property information provided here is for reference only, but is not guaranteed to be accurate. It is the buyer's responsibility to verify all property information.</p>
+          <p> Cool, calm and sophisticated with a youthful edge, this functional home is enveloped in light and comfort. Crisp white walls, timber floors and high ceilings create a style as timeless as the sparkling ocean view. The calming sea vista, captured through the extensive use of glass, will help you forget your city stress.
+          <p class="para">The floor plan encompasses 12 spacious bedrooms with plenty of room for study, sleep and storage, 13 luxurious bathrooms, and a sleek and stylish kitchen that flows through to the dining room and private rear patio. The master bedroom, complete with walk-in robe and ensuite, ensures parents have a private space where they can enjoy the view.</p>
         </div>
       </div>
     </div>

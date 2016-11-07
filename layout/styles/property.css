@@ -3,6 +3,118 @@
 @import url("custom.flexslider.css");
 @import url("framework.css");
 
+.cent{
+  text-align: center;
+  padding-left: 220px;
+}
+
+.clicks {
+  width: 100px;
+  position: absolute;
+  color: black;
+  font-weight: 600;
+  font-family: arial;
+  background-color: gray;
+  height: 30px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: 25px;
+  border: 5px; 
+}
+
+button:hover {
+  width: 100px;
+  position: absolute;
+  font-weight: 600;
+  background: darkgray;
+  color: black;
+  font-family: times;
+  height: 30px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: 25px;
+  border: 5px ;
+
+}
+
+h3{
+	padding-bottom: 10px;
+	padding-top: 10px;
+
+	text-align: center;
+}
+
+h5{
+	font-style: italic;
+}
+
+.para{
+	padding-bottom: 5px;
+	padding-top: 5px;
+
+	text-align: left;
+}
+
+.click{
+  width:50px;
+  position: absolute;
+  font-weight: 600;
+  background: gray;
+  color: black;
+  font-family: times;
+  height: 30px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: 25px;
+  border: 5px ;
+}
+
+.click:hover{
+  width:50px;
+  position: absolute;
+  font-weight: 600;
+  background: darkgray;
+  color: white;
+  font-family: times;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 25px;
+  border: 5px ;
+}
+
+.text-center{
+	font-style: italic;
+}
+
+
+
+/*.col-sm-5{
+    margin: auto;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  color: black;
+  font-family: times;
+  font-style: italic;
+  line-height: 22px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid #999;
+  border: inset 1px solid #333;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5); 
+  background: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
+  
+}
+
+.col-sm-5:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 27px 40px 0 rgba(0,0,0,0.19);
+}*/
+
 /* Rows
 --------------------------------------------------------------------------------------------------------------- */
 .row0, .row0 a{}

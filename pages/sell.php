@@ -8,43 +8,51 @@
 <title>Sell</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="../layout/styles/buy.css" rel="stylesheet" type="text/css" media="all">
 <link href="../layout/styles/sell.css" rel="stylesheet" type="text/css" media="all">
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body id="top">
-<!-- Top Background Image Wrapper -->
-<div class="bgded overlay" style="background-image:url('../images/demo/backgrounds/01.png');"> 
-  <div class="wrapper row0">
-    <div id="topbar" class="hoc clear"> 
-      <div class="fl_left">
-        <ul class="nospace">
-          <li><i class="fa fa-phone"></i> (022) 28991988</li>
-          <li><i class="fa fa-envelope-o"></i> onlineauction@gmail.com</li>
-        </ul>
+    <div class="bgded overlay">
+      <div class="wrapper row0">
+        <div id="topbar" class="hoc clear"> 
+          <div class="fl_left">
+            <ul>
+              <li style="font-size: 12px;"><i class="fa fa-phone"></i> (022) 28991988</li>
+              <li style="font-size: 12px;"><i class="fa fa-envelope-o"></i> onlineauction@gmail.com</li>
+            </ul>
+          </div>
+          <div class="fl_right">
+            <ul>
+              <li style="font-size: 12px;"><a href="../index.php"><i class="fa fa-lg fa-home"></i></a></li>
+              <?php
+                if (isset($_SESSION['user'])) {
+                  echo '<li style="font-size: 12px;">';
+                  echo $_SESSION['user'];
+                  echo '</li> <li style="font-size: 12px;"><a href="../logout.php">Logout</a></li>';
+                }
+                else {
+                  echo '<li style="font-size: 12px;"><a href="../login/login.php">Register</a></li>';
+                  echo '<li style="font-size: 12px;"><a href="../login/signin.php">Login</a></li>';
+                }
+              ?>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="fl_right">
-        <ul class="nospace">
-          <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-          <li><a href="#"><?php if (isset($_SESSION['user'])) {
-            echo $_SESSION['user'];
-          } else {
-            echo "Login";
-          } ?></a></li>
-          <li>Logout</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  
-  <div class="wrapper row1">
-    <header id="header" class="hoc clear"> 
-      <div id="logo" class="fl_left">
-        <h1><a href="../index.php">Homeland</a></h1>
-      </div>
-     <nav id="mainav" class="fl_right">
+      
+      <div class="wrapper row1">
+        <header id="header" class="hoc clear"> 
+          <div id="logo" class="fl_left">
+            <h1><a href="../index.html"></a>Homeland</h1>
+          </div>
+          <nav id="mainav" class="fl_right">
             <ul class="clear">
-              <li><a href="..\index.php">Home</a></li>
-              <li><a href="buy\buy.php">Buy</a></li>
+              <li><a href="../index.php">Home</a></li>
+              <li><a href="buy/buy.php">Buy</a></li>
               <li class="active"><a href="sell.php">Sell</a></li>
               <li><a href="about_us.html">About Us</a></li>
               <li><a href="faq.html">FAQ</a></li>
@@ -53,51 +61,103 @@
           </nav>
         </header>
       </div>
+<!-- End Top Background Image Wrapper -->
+
+<div class="wrapper row2">
+  <div id="breadcrumb" class="hoc clear"> 
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="#">Sell</a></li>
+    </ul>
+  </div>
 </div>
 <!-- End Top Background Image Wrapper -->
 
-<div class="wrapper row3" style="background-color: grey">
+<div class="wrapper row3">
   <main class="hoc container clear"> 
-
-    <!-- main body -->
-  <form action="sellprop.php" method="post" enctype="multipart/form-data">
-    <div>
-      <h1>Details :</h1>
-        <span class="req">Name*:</span>
-        <input id="name" type="text"required autocomplete="off" name="fname" />
-        <span class="req">Surname*:</span>
-        <input id="name" type="text"required autocomplete="off" name="lname" />
-        <span class="req">Email Address*:</span>
-        <input id="email" type="text"required autocomplete="off" name="email" />
-        <span class="req">Address of the Property*:</span>
-        <textarea id="feedback" type="text"required name="address" autocomplete="off" style="margin-left: 350px;"></textarea>
-        <span class="req">Area of the Property(in sq ft.)*:</span>
-        <input type="text"required autocomplete="off" name="area" />
-        <span class="req">Beds*:</span>
-        <input type="text"required autocomplete="off" name="bedrooms" />
-        <span class="req">Baths*:</span>
-        <input type="text"required autocomplete="off" name="bathrooms" />
-        <span class="req">Initial Bid*:</span>
-        <input type="number"required autocomplete="off" name="inibid" /><br>
-        <span class="req">Minimum Bid*:</span>
-        <input type="number"required autocomplete="off" name="minibid" /><br>
-        <span class="req">End date*:</span>
-        <input type="date"required autocomplete="off" name="end_date" /><br>
-        <span class="req">Upload images of your property*:</span>
-        <input required name="userfile" type="file" multiple>
-        <span class="req">Upload documents of your property*:</span>
-        <input type="file"required autocomplete="off" name="docs" multiple><br>
-        <span class="req">Type of property*:</span><br><br>
-        Single Family<input type="radio"required name="chooseone" value="Single Family"><br>
- 		    Double family<input type="radio"required name="chooseone" value="Double Family"><br>
-        <button type="submit" class="button button-block"/>Register</button><br>
-      </div>
-    </form>
-    <div class="clear"></div>
+    <h1 class="well" style="text-align:center">Details of Property</h1>
+      <div class="col-lg-12 well">
+        <div class="row">
+        <form action="sellprop.php" method="post" enctype="multipart/form-data">
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <label class="req">First Name</label>
+                <input type="text"required name="fname" placeholder="Enter First Name Here.." class="form-control">
+              </div>
+              <div class="col-sm-6 form-group">
+                <label>Last Name</label>
+                <input type="text"required name="lname" placeholder="Enter Last Name Here.." class="form-control">
+              </div>
+            </div>          
+            <div class="form-group">
+              <label >Email Address</label>
+              <input type="text"required name="email" placeholder="Enter Email Address Here.." class="form-control">
+            </div>  
+            <div class="form-group">
+              <label>Address of the Property</label>
+              <textarea type="text"required name="address" placeholder="Enter Address Here.." rows="3" class="form-control"></textarea>
+            </div>
+            <div class="row">  
+            <div class="col-sm-4 form-group">
+              <label>Pincode</label>
+              <input type="text"required name="pincode" placeholder="Enter Pincode Here.." class="form-control" />
+            </div>
+            </div>  
+            <div class="row">
+              <div class="col-sm-4 form-group">
+                <label>Area of Property(in sq. ft.)</label>
+                <input type="text"required name="area" placeholder="Enter Area in sq ft.." class="form-control">
+              </div>  
+              <div class="col-sm-4 form-group">
+                <label>Beds</label>
+                <input type="text"required name="bedrooms" placeholder="Enter number of bedrooms.." class="form-control">
+              </div>  
+              <div class="col-sm-4 form-group">
+                <label>Baths</label>
+                <input type="text"required name="bathrooms" placeholder="Enter number of bathrooms.." class="form-control">
+              </div>    
+            </div>
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <label>Initial Bid</label>
+                <input type="text"required name="inibid" placeholder="Enter Initial Bid.." class="form-control">
+              </div>    
+              <div class="col-sm-6 form-group">
+                <label>Minimum Bid</label>
+                <input type="text"required name="minibid" placeholder="Enter Minimum Bid.." class="form-control">
+              </div>  
+            </div>            
+          <div class="form-group">
+            <label>End Date of the Auction</label>
+            <input type="Date"required name="end_date" placeholder="Enter End Date" >
+          </div>    
+          <div class="form-group">
+            <label>Upload documents of your property</label>
+            <input type="file"required autocomplete="off" name="docs" multiple>
+          </div>  
+          <div class="form-group">
+            <label>Enter photos of the Property</label>
+            <input required name="userfile" type="file"required multiple>
+          </div>
+          <label>Type of Property</label>
+          <div class="row">
+          <div class="col-sm-6 form-group">
+          Single Family<input type="radio"required name="chooseone" value="Single Family">
+          </div>
+          <div class="col-sm-6 form-group">
+          Double family<input type="radio"required name="chooseone" value="Double Family"><br>
+          </div>
+          </div>
+          <button type="submit" style="margin-left:250px" class="btn btn-lg btn-info">Submit</button>         
+          </div>
+        </form> 
+        </div>
+    </div>
   </main>
 </div>
 
-    <div id="contact_us" class="wrapper row4 bgded overlay" style="background-image:url('../images/demo/backgrounds/01.png');">
+<div class="wrapper row4 bgded overlay">
   <footer id="footer" class="hoc clear">
     <div class="one_third first">
       <h6 class="title">Happy to help!</h6>
@@ -106,7 +166,10 @@
       <ul class="faico clear">
         <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
         <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="faicon-dribble" href="#"><i class="fa fa-dribbble"></i></a></li>
+        <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
         <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+        <li><a class="faicon-vk" href="#"><i class="fa fa-vk"></i></a></li>
       </ul>
     </div>
     <div class="one_third">
@@ -126,15 +189,15 @@
       <ul class="nospace linklist">
         <li>
           <article>
-            <h2 class="nospace font-x1"><a href="#">Mumbai</a></h2>
-            <time class="font-xs block btmspace-10" datetime="2045-04-06">Office Timimgs: 8am-8pm </time>
+            <h4 ><a href="#">Mumbai</a></h2>
+            <time>Office Timimgs: 8am-8pm </time>
             <p class="nospace">A/303, Rosewood Heights, Oshiwara.</p>
           </article>
         </li>
         <li>
           <article>
-            <h2 class="nospace font-x1"><a href="#">Bangalore</a></h2>
-            <time class="font-xs block btmspace-10" datetime="2045-04-05">Office Timimgs: 8am-6pm </time>
+            <h4 ><a href="#">Bangalore</a></h2>
+            <time>Office Timimgs: 8am-6pm </time>
             <p class="nospace">B/506, Mistique Wood, Old Race Course Rd, Yellagondanpalya.</p>
           </article>
         </li>

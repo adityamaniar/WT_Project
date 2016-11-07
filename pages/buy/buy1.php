@@ -1,10 +1,3 @@
-<?php 
-  session_start();
-  require_once("connection.php");
-  if (isset($_SESSION['user'])) {
-   header("location: buy1.php");
- }
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +8,16 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body id="top">
+<?php 
+  session_start();
+  require_once('connection.php');
+  if (isset($_SESSION['user'])) {
+   $username = $_SESSION['user'];
+ }
+?>
 <!-- Top Background Image Wrapper -->
     <div class="bgded overlay" style="background-image:url('../../images/backgrounds/01.png');">
-      <div class="wrapper row0" style="margin-top:10px;">
+      <div class="wrapper row0">
         <div id="topbar" class="hoc clear"> 
           <div class="fl_left">
             <ul>
@@ -28,8 +28,11 @@
           <div class="fl_right">
             <ul>
               <li style="font-size: 12px;"><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-              <li style="font-size: 12px;"><a href="../login/login.php">Register</a></li>
-              <li style="font-size: 12px;"><a href="../login/signin.php">Login</li>
+              <li style="font-size: 12px;"><a href="#"><?php 
+              if (isset($_SESSION['user'])) {
+                echo $username;
+              } ?></a></li>
+              <li style="font-size: 12px;"><a href="../logout.php">Logout</a></li>
             </ul>
           </div>
         </div>
@@ -64,47 +67,18 @@
 </div>
 
 <div class="wrapper row3">
-  <main class="hoc container clear">
-    <form method="post" action="?"> 
-      <button class="search" style="float: left; height:40px; width:150px; margin-right:30px; margin-left:220px; background-color:orange;">Search</button>
-      <input type="text" name="pincode" placeholder="Enter pincode" class="search_box" style="height:40px; width:300px;padding-left:30px; margin-left:40px;" /><br/>
-    </form>
-    <form action="?" method="post">
-      <button name="unset" style="margin:auto; background-color:orange; height=30px; width:100px;">Unset Filter</button>
-    </form>
+  <main class="hoc container clear"> 
     <?php
-      if(isset($_POST['pincode'])) {
-        $pincode = $_POST['pincode'];
-        $_SESSION['pincode'] = $pincode;
-      }
-      if(isset($_POST['unset'])) {
-        unset($_SESSION['pincode']);
-      }
-      if(isset($_SESSION['pincode'])) {
-        $rows = "SELECT count(1) from buy where pincode=$pincode";
-        $result = mysqli_query($conn, $rows);
-        $row = mysqli_fetch_array($result);
-        $total = $row[0];
-      }
-      else {
-        $rows = "SELECT count(1) from buy";
-        $result = mysqli_query($conn, $rows);
-        $row = mysqli_fetch_array($result);
-        $total = $row[0];
-      }
+      $rows = "SELECT count(1) from buy";
+      $result = mysqli_query($conn, $rows);
+      $row = mysqli_fetch_array($result);
+      $total = $row[0];
       
       for ($rows = 0; $rows<$total; $rows++) 
       {  
-        if(isset($_SESSION['pincode'])) {
-          $sql = "SELECT * FROM buy WHERE id=$rows+1 AND pincode=$pincode";
-          $result = mysqli_query($conn, $sql);
-          $row = mysqli_fetch_array($result);
-        }
-        else {
-          $sql = "SELECT * FROM buy WHERE id=$rows+1";
-          $result = mysqli_query($conn, $sql);
-          $row = mysqli_fetch_array($result);
-        }
+        $sql = "SELECT * FROM buy WHERE id=$rows+1";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($result);
 
         echo '<div class="row" id="box">
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">';
@@ -114,7 +88,7 @@
                   <address>
                     <span class="address pull-left">';
                 
-        echo '<h4>'.$row["address"].', '.$row["pincode"].'</h4>';
+        echo '<h4>'.$row["address"].'</h4>';
 
         echo '</span>
             </address><hr></hr>
@@ -233,7 +207,7 @@
               <div class="bidAmd robotoregular" style="padding-top:10px"><h3>Rs.';
               echo $row['current_bid'];
               echo '</h3></div>
-              <a href="property.php?id='.$row['id'].'" type="button" class="view_details btn btn-default textFade viewDetails robotoregular pdpLink" style="background-color:orange">View Details</a>
+              <a href="property.php?id='.$row['id'].'" type="button" class="view_details btn btn-default textFade viewDetails robotoregular pdpLink" >View Details</a>
             </div>
           </div>
           </div>
