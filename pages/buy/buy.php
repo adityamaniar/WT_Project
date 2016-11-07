@@ -84,50 +84,53 @@
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">';
                 echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';
                 echo '</div>
-                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" style="padding:10px;">
                   <address>
                     <span class="address pull-left">';
                 
-        echo $row["address"];
+        echo '<h4>'.$row["address"].'</h4>';
 
         echo '</span>
-            </address>
+            </address><hr></hr>
 
-            <div class="row propDetails hidden-xs">
-              <div class="col-xs-12 col-sm-5 col-md-6 col-lg-6 text-center paddingLR0 propDetails">
-                <span class="sfTxt pull-left robotoregular">';
+            <div class="row propDetails hidden-xs" style="padding:13px,">
+              <div class="col-xs-12 col-sm-5 col-md-6 col-lg-6 text-center paddingLR0 propDetails" style="padding-bottom:30px;border-right:0.5px solid #DCDCDC;">
+                <span class="sfTxt pull-left robotoregular" style="background-color:#DCDCDC;padding:5px;">';
                 
         echo $row["house_type"];
                 
         echo  '</span>
-              <span class="poolTxt hidden-sm pull-left">';
-                
+              <span class="poolTxt hidden-sm pull-left"><hr></hr>';
+        
                 
                 
         echo '</span>
               <div class="clearfix"></div>
-              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 beds"><div>';
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 beds" style="margin-top:10px;border-right:0.5px solid #DCDCDC" ><div>';
         echo $row["beds"];
         echo    '</div>
             <div class="srpTxt">Beds</div>
             </div>
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 baths">';
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 baths" style="margin-top:10px;border-right:0.5px solid #DCDCDC">';
            
         echo $row["baths"];
           
         echo '<br/><span class="srpTxt">Bath</span></div>
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sqFeet">';
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sqFeet" style="margin-top:10px;">';
           
         echo $row["sq_ft"];
         echo '<br/><span class="srpTxt ">Sq Ft</span></div>
             <div class="clearfix"></div>
           </div>
-          <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 text-center timer">';
+
+
+
+          <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 text-center timer" style="border-right:0.5px solid #DCDCDC;">';
         
           $end_date = $row["end_date"];
         
         echo '
-          <div class="srpTxt timeLeftTxt">Time Left</div>
+          <div class="srpTxt timeLeftTxt" style="">Time Left</div>
           <table width="100%">
           <tr class="counter Red">
             <td id="days'.$row['id'].'"></td>
@@ -144,8 +147,12 @@
             <td>MINS</td>
           </tr>
           </table>
+      
+      <hr></hr>
           <table width="100%" class="borderT">
           <tr>
+      
+      
             <td>
               <div class="srpTxt reserveMet text-left ">Reserve Met : No</div>
             </td>
@@ -197,10 +204,10 @@
             echo '</div>
             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-center paddingLR0 " >
               <div class="srpTxt timeLeftTxt">Current Bid</div>
-              <div class="bidAmd robotoregular">Rs.';
+              <div class="bidAmd robotoregular" style="padding-top:10px"><h3>Rs.';
               echo $row['current_bid'];
-              echo '</div>
-              <a href="property.php?id='.$row['id'].'" type="button" class="view_details">View Details</a>
+              echo '</h3></div>
+              <a href="property.php?id='.$row['id'].'" type="button" class="view_details btn btn-default textFade viewDetails robotoregular pdpLink" >View Details</a>
             </div>
           </div>
           </div>

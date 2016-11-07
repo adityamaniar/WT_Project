@@ -10,6 +10,9 @@
 <body>
 
 <body id="top">
+  <script type="text/javascript">
+    alert("You Need to Be Logged in to place a bid");
+  </script>
 <?php 
   session_start();
   require_once('connection.php');
