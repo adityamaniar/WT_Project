@@ -13,7 +13,7 @@
 </head>
 <body id="top">
 <!-- Top Background Image Wrapper -->
-    <div class="bgded overlay" style="background-image:url('../../images/backgrounds/01.png');">
+    <div class="bgded overlay">
       <div class="wrapper row0" style="margin-top:10px;">
         <div id="topbar" class="hoc clear"> 
           <div class="fl_left">
@@ -51,7 +51,7 @@
               <li><a href="../../index.php">Home</a></li>
               <li class="active"><a href="buy.php">Buy</a></li>
               <li><a href="..\sell.php">Sell</a></li>
-              <li><a href="..\about_us.html">About Us</a></li>
+              <li><a href="..\about_us.html#point">About Us</a></li>
               <li><a href="..\faq.html">FAQ</a></li>
               <li><a id="tocontactus" href="#contact_us">Contact Us</a></li>
             </ul>
@@ -71,16 +71,17 @@
 
 <div class="wrapper row3">
   <main class="hoc container clear">
-    <form method="post" action="?">
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
       <button class="search" style="float: left; height:40px; width:150px; margin-right:30px; margin-left:220px; background-color:orange; border-radius: 10px;">Search</button>
       <input type="text" name="pincode" placeholder="Enter pincode" class="search_box" style="height:40px; width:300px;padding-left:10px; margin-left:40px;" /><br/>
     </form>
-    <form action="?" method="post">
+    <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
       <button name="unset" style="margin:auto; background-color:orange; height=30px; width:100px;">Unset Filter</button>
     </form>
     <?php
       if(isset($_POST['pincode'])) {
         $pincode = $_POST['pincode'];
+        echo '<div>Filter set: Pincode '; echo $pincode; echo'</div>';
         $rows = "SELECT * from buy where pincode=$pincode";
         $result = mysqli_query($conn, $rows);
       }

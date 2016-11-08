@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <?php 
   session_start();
-  if (isset($_SESSION['user'])) {
-   header("location: home.php");
- }
 ?>
 <html>
    <head>
@@ -27,8 +24,17 @@
           <div class="fl_right">
             <ul>
               <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-              <li><a href="pages/login/login.php">Register</a></li>
-              <li><a href="pages/login/signin.php">Login</a></li>
+              <?php
+                if (isset($_SESSION['user'])) {
+                  echo '<li style="font-size: 12px;">';
+                  echo $_SESSION['user'];
+                  echo '</li> <li style="font-size: 12px;"><a href="../logout.php">Logout</a></li>';
+                }
+                else {
+                  echo '<li style="font-size: 12px;"><a href="../login/login.php">Register</a></li>';
+                  echo '<li style="font-size: 12px;"><a href="../login/signin.php">Login</a></li>';
+                }
+              ?>
             </ul>
           </div>
         </div>
@@ -44,7 +50,7 @@
               <li class="active"><a href="index.html">Home</a></li>
               <li><a href="pages\buy\buy.php">Buy</a></li>
               <li><a href="pages\sell.php">Sell</a></li>
-              <li><a href="pages\about_us.html">About Us</a></li>
+              <li><a href="pages\about_us.html#point">About Us</a></li>
               <li><a href="pages\faq.html">FAQ</a></li>
               <li><a id="tocontactus" href="#contact_us">Contact Us</a></li>
             </ul>

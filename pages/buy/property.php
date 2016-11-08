@@ -80,20 +80,20 @@
 	    </div>
 	    <div class="col-sm-6">
 	      <div class="col-sm-4">
-          Beds<br>
-          <h3><?php
+          <b>Beds<b><br>
+          <h3 style="padding-right:40px;"><?php
             echo $row["beds"];
           ?></h3>
         </div>
         <div class="col-sm-4">
-          Baths<br>
-          <h3><?php
+          <b>Baths<br>
+          <h3 style="padding-right:80px;"><?php
             echo $row["baths"];
           ?></h3>
         </div>
         <div class="col-sm-4">
-          Sq. Feet<br>
-          <h3><?php
+          <b style="margin-left:15px;">Sq. Feet</b><br>
+          <h3 style="padding-right:40px;"><?php
             echo $row["sq_ft"];
           ?></h3>
         </div>
@@ -155,6 +155,8 @@
         <?php
           $end_date = $row["end_date"];
           $email = $row["email"];
+          if(isset($_SESSION['user']))
+          $fname = $_SESSION['user'];
           $bidder_name = $row["bidder_name"];
           $price = $row["current_bid"];
         ?>
@@ -196,7 +198,7 @@
               secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
               console.log(t.total);
-              if (t.total == 1663250000) {
+              if (t.total == 67970000) {
                 window.location = "sendemail.php?email=" +email+"&bidder_name="+bidder_name+"&price="+price+"&id="+id;
               }
             }
@@ -275,7 +277,7 @@
           <h3>Description</h3>
           <h5>SPECIAL SERVICING CONDITIONS APPLY</h5>
           <p> Cool, calm and sophisticated with a youthful edge, this functional home is enveloped in light and comfort. Crisp white walls, timber floors and high ceilings create a style as timeless as the sparkling ocean view. The calming sea vista, captured through the extensive use of glass, will help you forget your city stress.
-          <p class="para">The floor plan encompasses 12 spacious bedrooms with plenty of room for study, sleep and storage, 13 luxurious bathrooms, and a sleek and stylish kitchen that flows through to the dining room and private rear patio. The master bedroom, complete with walk-in robe and ensuite, ensures parents have a private space where they can enjoy the view.</p>
+          <p class="para">The floor plan encompasses spacious bedrooms with plenty of room for study, sleep and storage, luxurious bathrooms, and a sleek and stylish kitchen that flows through to the dining room and private rear patio. The master bedroom, complete with walk-in robe and ensuite, ensures parents have a private space where they can enjoy the view.</p>
         </div>
       </div>
     </div>
